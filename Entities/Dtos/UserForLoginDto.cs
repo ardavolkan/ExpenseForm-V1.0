@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.ad
+namespace Entities.Dtos
 {
-    internal class asd
+    public class UserForLoginDto
     {
     }
 }
