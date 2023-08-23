@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Business.Constans
 {
-    internal class Messages
+    public class Messages
     {
     }
 }

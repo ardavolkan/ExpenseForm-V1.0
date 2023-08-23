@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    internal interface IPaymentDal
+    public interface IPaymentDal
     {
     }
 }

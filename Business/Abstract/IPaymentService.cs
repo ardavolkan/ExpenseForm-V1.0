@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Business.Abstract
 {
-    internal interface IPaymentService
+    public interface IPaymentService
     {
     }
 }

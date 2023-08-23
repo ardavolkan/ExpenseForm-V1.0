@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    internal class ReceiptManager
+    public class ReceiptManager
     {
     }
 }

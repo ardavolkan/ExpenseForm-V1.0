@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Entities.Dtos
 {
-    public class ExpenceDetailDto
+    public class ExpenceDetailDto: IDto
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string EmployeeId { get; set; }
         public string ExpenceId { get; set; }
         public string DocumentDate { get; set; }
