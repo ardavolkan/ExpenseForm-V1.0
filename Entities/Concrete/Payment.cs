@@ -6,9 +6,14 @@ namespace Entities.Concrete
 {
     public class Payment
     {
-        public int PaymentId { get; set; }
-        public string CategoryName { get; set; }
-        public string QuantityPerUnit { get; set; }
+        public string Id { get; set; }
+        public string EmployeeId { get; set; }
+        public string Amount { get; set; }
+        public string PaymentChoices { get; set; }
+        public string Description { get; set; }
+
+
+
 
 
     }

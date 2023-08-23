@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.Dtos
+namespace Entities.Concrete
 {
-    internal class UserForLoginDto
+    internal class Expence
     {
     }
 }
