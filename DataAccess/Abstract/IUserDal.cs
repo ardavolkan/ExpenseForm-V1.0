@@ -1,4 +1,4 @@
-using Core.DataAcsess;
+﻿using Core.DataAcsess;
 using Core.Entities.Concrete;
 using Entities.Concrete;
 using System;
@@ -7,8 +7,7 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface IEmployeeDal:IEntityRepository<Employee>
+    public interface IUserDal: IEntityRepository<User>
     {
-
     }
 }
