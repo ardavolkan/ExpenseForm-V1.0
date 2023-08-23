@@ -14,8 +14,6 @@ namespace Business.Abstract
         IResult Delete(Receipt receipt);
         IResult Update(Receipt receipt);
         Receipt GetById(int Id);
-
-
-
+        Receipt GetByName(string Name);
     }
 }

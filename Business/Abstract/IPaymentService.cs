@@ -1,10 +1,18 @@
-﻿using System;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Business.Abstract
 {
-    internal interface IPaymentService
+    public interface IPaymentService
     {
+        IDataResult<List<Payment>> GetAll();
+        IResult Add(Payment payment);
+        IResult Delete(Payment payment);
+        IResult Update(Payment payment);
+        Payment GetByHistory(string history);
+
     }
 }

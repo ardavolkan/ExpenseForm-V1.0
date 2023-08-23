@@ -14,9 +14,5 @@ namespace Entities.Dtos
         public double TaxRate { get; set; }
         public double Total { get; set; }
         public double TaxTotal { get; set; }
-
-
-
-
     }
 }
