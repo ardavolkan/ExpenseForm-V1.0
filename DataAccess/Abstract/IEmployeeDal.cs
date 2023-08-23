@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Business.asd
+namespace DataAccess.Abstract
 {
-    internal class asd
+    internal interface IEmployeeDal
     {
     }
 }
