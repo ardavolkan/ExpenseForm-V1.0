@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface IEmployeeDal:IEntityRepository<Employee>
+    public interface IUserDal: IEntityRepository<User>
     {
     }
 }
