@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataAccess.asd
+namespace Business.Concrete
 {
-    internal class asd
+    internal class ReceiptManager
     {
     }
 }
