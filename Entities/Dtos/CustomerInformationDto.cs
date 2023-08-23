@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Entities.Dtos
 {
-    internal class UserForLoginDto
+    internal class CustomerInformationDto
     {
     }
 }
