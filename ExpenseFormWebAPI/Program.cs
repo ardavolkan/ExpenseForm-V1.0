@@ -1,10 +1,22 @@
+using Autofac.Extensions.DependencyInjection;
+using Autofac;
+using Business.DependencyResolvers.Autofac;
+using Microsoft.AspNetCore.Hosting;
+
 namespace ExpenseFormWebAPI
 {
     public class Program
     {
         public static void Main(string[] args)
         {
+
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
+              .ConfigureContainer<ContainerBuilder>(builder =>
+              {
+                  builder.RegisterModule(new AutofacBusinessModule());
+              });
 
             // Add services to the container.
 
@@ -25,7 +37,8 @@ namespace ExpenseFormWebAPI
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
+            
+            app.UseStaticFiles();
 
             app.MapControllers();
 

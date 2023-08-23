@@ -1,4 +1,4 @@
-﻿using Core.DataAcsess;
+using Core.DataAcsess;
 using Core.Entities.Concrete;
 using Entities.Concrete;
 using System;
@@ -9,5 +9,6 @@ namespace DataAccess.Abstract
 {
     public interface IEmployeeDal:IEntityRepository<Employee>
     {
+
     }
 }
