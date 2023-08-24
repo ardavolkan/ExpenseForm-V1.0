@@ -15,8 +15,5 @@ namespace Entities.Concrete
         public string CompanyName { get; set; }
         public string Address { get; set; }
 
-
-
-
     }
 }

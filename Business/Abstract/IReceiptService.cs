@@ -15,7 +15,5 @@ namespace Business.Abstract
         IResult Update(Receipt receipt);
         Receipt GetById(int Id);
 
-
-
     }
 }
