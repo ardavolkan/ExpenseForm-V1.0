@@ -9,6 +9,10 @@ namespace Entities.Concrete
     {
         public int Id { get; set; } 
         public string EmployeeId { get; set; }
+        public string EmployeeFirstName { get; set; }
+        public string EmployeeLastName { get; set; }
+        public string EmployeeDepartment { get; set; }
+
         public string Amount { get; set; }
         public string PaymentChoices { get; set; }
         public string Description { get; set; }
