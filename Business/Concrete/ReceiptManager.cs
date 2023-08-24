@@ -13,6 +13,7 @@ namespace Business.Concrete
 {
     public class ReceiptManager : IReceiptService
     {
+
         private readonly IReceiptDal _receiptDal;
         public ReceiptManager(IReceiptDal receiptDal)
         {
@@ -31,14 +32,26 @@ namespace Business.Concrete
         {
             _receiptDal.Delete(receipt);
             return new SuccessResult(Messages.ReceiptDeleted);
+
         }
 
         public IDataResult<List<Receipt>> GetAll()
         {
+
             return new SuccessDataResult<List<Receipt>>(Messages.ReceiptListed);
         }
 
         public Receipt GetById(string Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Receipt GetByName(string Name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult Update(Receipt receipt)
         {
             return _receiptDal.Get(u => u.ReceiptId == Id);
         }
