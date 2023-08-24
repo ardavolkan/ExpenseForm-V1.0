@@ -14,8 +14,6 @@ namespace Entities.Concrete
         public string Description { get; set; }
 
         public string History { get; set; }
-
-
-
+        public bool Success { get; set; }
     }
 }

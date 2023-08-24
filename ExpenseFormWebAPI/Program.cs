@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Core.Utilities.Security.Encryption;
 using Core.DependencyResolvers;
+using System.Configuration;
+using Core.Extensions;
 
 namespace ExpenseFormWebAPI
 {
@@ -20,7 +22,6 @@ namespace ExpenseFormWebAPI
 
 
 
-            /*var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();    
 
             var builder = WebApplication.CreateBuilder(args);
 
@@ -41,7 +42,7 @@ namespace ExpenseFormWebAPI
             });
 
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+            var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opsions =>
             {
 
@@ -85,7 +86,7 @@ namespace ExpenseFormWebAPI
                 endpoints.MapControllers();
             });
 
-            app.Run();*/
+            app.Run();
             
         }
     }
