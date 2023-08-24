@@ -12,7 +12,7 @@ namespace Business.Abstract
         IResult Delete(Payment payment);
         IResult Update(Payment payment);
         IDataResult<List<Payment>> GetAll();
-        Payment GetById(int Id);
+        Payment GetById(string Id);
         Payment GetByHistory(string history);
 
 

@@ -1,17 +1,19 @@
 ﻿using Core.Entities;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Core.DataAcsess
+namespace Core.DataAccess.Databases
 {
     public interface IEntityRepository<T> where T : class, IEntity, new()
     {
-        List<T> GettAll(Expression<Func<T, bool>> filter = null); // Filtre vermesende olur Tüm datayı İstiyo
-        T Get(Expression<Func<T, bool>> filter);
+        List<T> GetAll(Expression<Func<T, bool>> filter = null);
+        T Get(Expression<Func<T, bool>> filter = null);
         void Add(T entity);
-        void Update(T entity);
-        void Delete(T entity);
-
+        DeleteResult Delete(T entity);
+        ReplaceOneResult Update(T entity);
+        DeleteResult DeleteMany(Expression<Func<T, bool>> filter = null);
+        List<T> GetAllWithPage(int page, int limit, Expression<Func<T, bool>> filter = null);
     }
 }

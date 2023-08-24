@@ -43,7 +43,7 @@ namespace Business.Concrete
             return _paymentDal.Get(u => u.History == history);
         }
 
-        public Payment GetById(int Id)
+        public Payment GetById(string Id)
         {
             return _paymentDal.Get(u => u.Id == Id);
         }

@@ -7,9 +7,11 @@ namespace Entities.Dtos
 {
     public class EmployeeDto: IDto
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Department { get; set; }
+        public string EmployeeId { get; set; }
+        public string EmployeeFirstName { get; set; }
+        public string EmployeeLastName { get; set; }
+        public string EmployeeDepartment { get; set; }
+        public string EmployeePhone { get; set; }
+        public bool Success { get; set; }
     }
 }

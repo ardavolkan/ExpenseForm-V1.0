@@ -35,7 +35,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Employee>> GetAll()
         {
-            return new SuccessDataResult<List<Employee>>(Messages.EmployeeListed);
+            return new SuccessDataResult<List<Employee>>(_employeeDal.GetAll());
         }
 
         public Employee GetByDepartment(string department)
@@ -43,7 +43,7 @@ namespace Business.Concrete
             return _employeeDal.Get(u => u.EmployeeDepartment == department);
         }
 
-        public Employee GetById(int Id)
+        public Employee GetById(string Id)
         {
             return _employeeDal.Get(u => u.EmployeeId == Id);
         }

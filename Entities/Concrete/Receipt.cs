@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,10 @@ namespace Entities.Concrete
 {
     public class Receipt:IEntity
     {
-        public int ReceiptId { get; set; }
+        [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
+        public string Id { get; set; }
+        public string ReceiptId { get; set; }
         public string EmployeeFirstName { get; set; }
         public string EmployeeLastName { get; set; }
         public string EmployeeDepartment { get; set; }

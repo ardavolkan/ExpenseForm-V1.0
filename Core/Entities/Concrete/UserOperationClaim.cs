@@ -1,8 +1,12 @@
-﻿namespace Core.Entities.Concrete
+﻿using MongoDB.Bson.Serialization.Attributes;
+
+namespace Core.Entities.Concrete
 {
    public class UserOperationClaim :IEntity
     {
-        public int Id { get; set; }
+        [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
+        public string Id { get; set; }
         public int UserId { get; set; }
         public int OperationClaimId { get; set; }
     }

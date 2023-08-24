@@ -59,7 +59,7 @@ namespace ExpenseFormWebAPI.Controllers
         }
 
         [HttpGet("getbyıd")]
-        public ActionResult GetById(int Id)
+        public ActionResult GetById(string Id)
         {
             var result = _receiptService.GetById(Id);
             if (result.Success)

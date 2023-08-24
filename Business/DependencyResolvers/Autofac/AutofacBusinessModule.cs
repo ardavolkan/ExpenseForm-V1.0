@@ -1,17 +1,13 @@
-﻿using Business.Abstract;
-using Business.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Business.DependencyResolvers.Autofac;
-using System.ComponentModel;
-using Autofac;
-using DataAccess.Abstract;
+﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
+using Business.Abstract;
+using Business.Concrete;
+using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
-using Castle.DynamicProxy;
-using DataAccess.Concrete.EntityFramework;
+using DataAccess.Abstract;
+using DataAccess.Concrete.Databases.MongoDB.Utilities.ConnectionResolvers;
+using DataAccess.Concrete.MongoDB;
 
 namespace Business.DependencyResolvers.Autofac
 {
@@ -19,20 +15,23 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<ReceiptManager>().As<IReceiptService>().SingleInstance();
-            builder.RegisterType<EfReceiptDal>().As<IReceiptDal>().SingleInstance();
+
+            //builder.RegisterType<ReceiptManager>().As<IReceiptService>().SingleInstance();
+            //builder.RegisterType<MongoDB_ReceiptDal>().As<IReceiptDal>().SingleInstance();
 
             builder.RegisterType<EmployeeManager>().As<IEmployeeService>().SingleInstance();
-            builder.RegisterType<EfEmployeeDal>().As<IEmployeeDal>().SingleInstance();
+            builder.RegisterType<MongoDB_EmployeeDal>().As<IEmployeeDal>().SingleInstance();
 
-            builder.RegisterType<PaymentManager>().As<IPaymentService>().SingleInstance();
-            builder.RegisterType<EfPaymentDal>().As<IPaymentDal>().SingleInstance();
+            //builder.RegisterType<PaymentManager>().As<IPaymentService>().SingleInstance();
+            //builder.RegisterType<EfPaymentDal>().As<IPaymentDal>().SingleInstance();
 
-            builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
-            builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
+            //builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
+            //builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
+
+            builder.RegisterType<MongoDB_ConnectionHelper>().As<IDatabase_ConnectionHelper>().SingleInstance();
 
             builder.RegisterType<ExpenceManager>().As<IExpenceService>().SingleInstance();
-            builder.RegisterType<EfExpenceDal>().As<IExpenceDal>().SingleInstance();
+            builder.RegisterType<MongoDB_ExpenceDal>().As<IExpenceDal>().SingleInstance();
 
             builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>().SingleInstance();
