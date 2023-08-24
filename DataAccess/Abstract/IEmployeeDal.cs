@@ -1,10 +1,14 @@
-﻿using System;
+using Core.DataAcsess;
+using Core.Entities.Concrete;
+using Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DataAccess.Abstract
 {
-    internal interface IEmployeeDal
+    public interface IEmployeeDal:IEntityRepository<Employee>
     {
+
     }
 }
