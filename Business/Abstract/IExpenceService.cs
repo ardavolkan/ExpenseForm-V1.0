@@ -12,7 +12,7 @@ namespace Business.Abstract
         IResult Delete(Expence expence);
         IResult Update(Expence expence);
         Expence GetByDate(string date);
-        Expence GetById(int Id);
+        Expence GetById(string Id);
         Expence GetByAmount(string amount);
         IDataResult<List<Expence>> GetAll();
     }

@@ -49,7 +49,7 @@ namespace Business.Concrete
             return _expenceDal.Get(u => u.Date == date);
         }
 
-        public Expence GetById(int Id)
+        public Expence GetById(string Id)
         {
             return _expenceDal.Get(u=>u.Id==Id);
         }

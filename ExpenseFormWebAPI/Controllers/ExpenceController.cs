@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
+using Entities.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExpenseFormWebAPI.Controllers
@@ -15,9 +16,18 @@ namespace ExpenseFormWebAPI.Controllers
             _expenceService = expenceService;           
         }
         [HttpPost("add")]
-        public IActionResult Add(Expence expence)
+        public IActionResult Add(ExpenceDto expenceDto)
         {
-
+            Expence expence = new Expence()
+            {
+                Amount = expenceDto.Amount,
+                Date = expenceDto.Date,
+                EmployeeDepartment = expenceDto.EmployeeDepartment,
+                EmployeeFirstName = expenceDto.EmployeeFirstName,
+                EmployeeId = expenceDto.EmployeeId,
+                EmployeeLastName = expenceDto.EmployeeLastName,
+                Success = expenceDto.Success
+            };
             var result = _expenceService.Add(expence);
             if (result.Success)
             {
@@ -27,7 +37,7 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("getbyid")]
-        public IActionResult GetById(int id)
+        public IActionResult GetById(string id)
         {
             var result = _expenceService.GetById(id);
             if (result.Success)

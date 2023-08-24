@@ -41,7 +41,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Receipt>>(Messages.ReceiptListed);
         }
 
-        public Receipt GetById(int Id)
+        public Receipt GetById(string Id)
         {
             throw new NotImplementedException();
         }

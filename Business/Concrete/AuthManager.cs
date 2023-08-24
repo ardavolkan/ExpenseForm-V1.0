@@ -12,7 +12,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class AuthManager
+    public class AuthManager : IAuthService
     {
         private readonly IUserService _userService;
         private readonly ITokenHelper _tokenHelper;

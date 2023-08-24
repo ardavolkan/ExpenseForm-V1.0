@@ -7,7 +7,12 @@ namespace Entities.Dtos
 {
     public class ExpenceDto: IDto
     {
-        public int EmployeeId { get; set; }
-        public string Date { get; set; }
+        public string EmployeeId { get; set; }  //Çalışan Id
+        public string EmployeeFirstName { get; set; }
+        public string EmployeeLastName { get; set; }
+        public string EmployeeDepartment { get; set; }
+        public string Date { get; set; }  //Tarih
+        public string Amount { get; set; } //Miktar
+        public bool Success { get; set; }
     }
 }
