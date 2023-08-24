@@ -17,6 +17,6 @@ namespace Entities.Concrete
         public string DocumentDescription { get; set; }
         public string CompanyName { get; set; }
         public string Address { get; set; }
-
+        public bool Success { get; set; }
     }
 }
