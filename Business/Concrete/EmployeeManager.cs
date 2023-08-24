@@ -1,4 +1,7 @@
 ﻿using Business.Abstract;
+using Business.Constans;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -16,39 +19,45 @@ namespace Business.Concrete
             _employeeDal = employeeDal;
         }
 
-        public IResult Add(Employee employee0)
+        [ValidationAspect(typeof(EmployeeValidator))]
+        public IResult Add(Employee employee)
         {
-            throw new NotImplementedException();
+            _employeeDal.Add(employee);
+            return new SuccessResult(Messages.EmployeeAdded);
         }
 
-        public IResult Delete(Employee employee0)
+        [ValidationAspect(typeof(EmployeeValidator))]
+        public IResult Delete(Employee employee)
         {
-            throw new NotImplementedException();
+            _employeeDal.Delete(employee);
+            return new SuccessResult(Messages.EmployeeDeleted);
         }
 
         public IDataResult<List<Employee>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Employee>>(Messages.EmployeeListed);
         }
 
         public Employee GetByDepartment(string department)
         {
-            throw new NotImplementedException();
+            return _employeeDal.Get(u => u.EmployeeDepartment == department);
         }
 
         public Employee GetById(int Id)
         {
-            throw new NotImplementedException();
+            return _employeeDal.Get(u => u.EmployeeId == Id);
         }
 
         public Employee GetByName(string name)
         {
-            throw new NotImplementedException();
+            return _employeeDal.Get(u => u.EmployeeFirstName == name);
         }
 
-        public IResult Update(Employee employee0)
+        [ValidationAspect(typeof(EmployeeValidator))]
+        public IResult Update(Employee employee)
         {
-            throw new NotImplementedException();
+            _employeeDal.Update(employee);
+            return new SuccessResult(Messages.EmployeeUpdated);
         }
     }
 }
