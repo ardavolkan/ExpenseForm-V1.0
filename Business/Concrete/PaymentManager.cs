@@ -1,4 +1,7 @@
 ﻿using Business.Abstract;
+using Business.Constans;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -15,34 +18,41 @@ namespace Business.Concrete
         {
             _paymentDal = paymentDal;
         }
+       
+        [ValidationAspect(typeof(PaymentValidator))]
         public IResult Add(Payment payment)
         {
-            throw new NotImplementedException();
+            _paymentDal.Add(payment);
+            return new SuccessResult(Messages.PaymentAdded);
         }
 
+        [ValidationAspect(typeof(PaymentValidator))]
         public IResult Delete(Payment payment)
         {
-            throw new NotImplementedException();
+            _paymentDal.Delete(payment);
+            return new SuccessResult(Messages.PaymentDeleted);
         }
 
         public IDataResult<List<Payment>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Payment>>(Messages.PaymentListed);
         }
 
         public Payment GetByHistory(string history)
         {
-            throw new NotImplementedException();
+            return _paymentDal.Get(u => u.History == history);
         }
 
         public Payment GetById(int Id)
         {
-            throw new NotImplementedException();
+            return _paymentDal.Get(u => u.Id == Id);
         }
 
+        [ValidationAspect(typeof(PaymentValidator))]
         public IResult Update(Payment payment)
         {
-            throw new NotImplementedException();
+            _paymentDal.Update(payment);
+            return new SuccessResult(Messages.PaymentUpdated);
         }
     }
 }

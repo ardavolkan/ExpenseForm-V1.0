@@ -13,7 +13,7 @@ namespace Entities.Concrete
         public string PaymentChoices { get; set; }
         public string Description { get; set; }
 
-
+        public string History { get; set; }
 
 
 
