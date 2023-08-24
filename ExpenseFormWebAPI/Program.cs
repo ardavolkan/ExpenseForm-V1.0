@@ -2,6 +2,14 @@ using Autofac.Extensions.DependencyInjection;
 using Autofac;
 using Business.DependencyResolvers.Autofac;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.OpenApi.Models;
+using System.Security.Cryptography.X509Certificates;
+using Core.Utilities.Security.JWT;
+using Autofac.Core;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Core.Utilities.Security.Encryption;
+using Core.DependencyResolvers;
 
 namespace ExpenseFormWebAPI
 {
@@ -9,6 +17,10 @@ namespace ExpenseFormWebAPI
     {
         public static void Main(string[] args)
         {
+
+
+
+            /*var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();    
 
             var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +35,31 @@ namespace ExpenseFormWebAPI
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(c=>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ExpenseFormWebAPI", Version = "v1" });
+            });
+
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opsions =>
+            {
+
+                opsions.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidIssuer = tokenOptions.Issuer,
+                    ValidAudience = tokenOptions.Audience,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+                };
+            });
+
+            builder.Services.AddDependencyResolvers(new Core.Utilities.IoC.ICoreModule[]{
+                new CoreModule()
+            });
 
             var app = builder.Build();
 
@@ -34,6 +70,8 @@ namespace ExpenseFormWebAPI
                 app.UseSwaggerUI();
             }
 
+            app.UseRouting();
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
@@ -42,7 +80,13 @@ namespace ExpenseFormWebAPI
 
             app.MapControllers();
 
-            app.Run();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+            app.Run();*/
+            
         }
     }
 }

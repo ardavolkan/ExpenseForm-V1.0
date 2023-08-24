@@ -11,7 +11,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlServer("Server=ARDA;Database=ExpenseForm;Integrated Security=SSPI;Trusted_Connection=true");
         }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Expence> Expences { get; set; }

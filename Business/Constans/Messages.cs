@@ -22,5 +22,12 @@ namespace Business.Constans
         public static string ExpenceDeleted = "Gider Silindi.";
         public static string ExpenceUpdated = "Gider Güncellendi.";
         public static string ExpenceListed = "Giderler Listelendi.";
+        public static string AuthorizationDenied = "Yetki Reddedildi";
+        public static string UserRegistered = "Kullanıcı Kayıt Oldu.";
+        public static string AccessTokenCreated = "Token Oluşturuldu.";
+        public static string UserAlreadyExists = "Kullanıcı Zaten Var.";
+        public static string UserLogin = "Kullanıcı Giriş Yaptı.";
+        public static string PasswordError = "Parola Hatası.";
+        public static string UserNotFound = "Kullanıcı Bulunamadı.";
     }
 }
