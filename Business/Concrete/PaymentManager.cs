@@ -18,6 +18,7 @@ namespace Business.Concrete
         {
             _paymentDal = paymentDal;
         }
+
        
         [ValidationAspect(typeof(PaymentValidator))]
         public IResult Add(Payment payment)
@@ -40,8 +41,9 @@ namespace Business.Concrete
 
         public Payment GetByHistory(string history)
         {
-            return _paymentDal.Get(u => u.History == history);
+            throw new NotImplementedException();
         }
+
 
         public Payment GetById(int Id)
         {
