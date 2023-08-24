@@ -12,5 +12,6 @@ namespace Entities.Concrete
         public string EmployeeLastName { get; set; }
         public string EmployeeDepartment { get; set;}
         public int EmployeePhone { get; set; }
+        public bool Success { get; set; }
     }
 }

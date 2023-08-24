@@ -14,6 +14,6 @@ namespace Entities.Concrete
         public string EmployeeDepartment { get; set; }
         public string Date { get; set; }  //Tarih
         public string Amount { get; set; } //Miktar
-
+        public bool Success { get; set; }
     }
 }
