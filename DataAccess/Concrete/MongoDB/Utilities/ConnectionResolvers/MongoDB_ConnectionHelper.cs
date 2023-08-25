@@ -40,9 +40,6 @@ namespace DataAccess.Concrete.Databases.MongoDB.Utilities.ConnectionResolvers
 
             return new ErrorDataResult<DatabaseConnectionSettings>();
 
-
-
-
         }
     }
 }
