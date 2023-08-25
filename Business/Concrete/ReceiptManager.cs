@@ -58,5 +58,7 @@ namespace Business.Concrete
         {
             return (IDataResult<Receipt>)_receiptDal.Get(u => u.EmployeeFirstName == Name);
         }
+
+
     }
 }

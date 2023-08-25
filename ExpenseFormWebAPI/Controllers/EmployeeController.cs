@@ -35,7 +35,7 @@ namespace ExpenseFormWebAPI.Controllers
                 EmployeeDepartment = employeeDto.EmployeeDepartment,
                 EmployeeFirstName = employeeDto.EmployeeFirstName,
                 EmployeeLastName = employeeDto.EmployeeLastName,
-
+                EmployeePhone = employeeDto.EmployeePhone,
                 Success = employeeDto.Success
             };
             var result = _employeeService.Add(employee);
