@@ -6,10 +6,19 @@ using System.Text;
 namespace Entities.Dtos
 {
     public class PaymentDto: IDto
+
     {
-        public string EmployeeId { get; set; }
+        //Ödeme
+        public string EmployeeFirstName { get; set; }
+        public string EmployeeLastName { get; set; }
+        public string EmployeeDepartment { get; set; }
+
         public string Amount { get; set; }
+        public string PaymentChoices { get; set; }
         public string Description { get; set; }
+
+        public string History { get; set; }
+        public bool Success { get; set; }
 
 
     }
