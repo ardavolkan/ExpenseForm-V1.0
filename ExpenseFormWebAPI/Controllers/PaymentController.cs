@@ -19,6 +19,7 @@ namespace ExpenseFormWebAPI.Controllers
 
         [HttpPost("add")]
         public ActionResult Add(PaymentDto paymentDto)
+
         {
             Payment payment = new Payment()
             {
@@ -39,7 +40,7 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpGet("getall")]
+        [HttpGet("GetAll")]
         public ActionResult GetAll()
         {
             var result = _paymentService.GetAll();
@@ -76,6 +77,7 @@ namespace ExpenseFormWebAPI.Controllers
 
         [HttpPost("update")]
         public ActionResult Update(PaymentDto paymentDto)
+
         {
             Payment payment = new Payment()
             {
@@ -96,7 +98,7 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpGet("getbyid")]
+        [HttpGet("GetById")]
         public IActionResult GetById(string id)
         {
             var result = _paymentService.GetById(id);
@@ -107,7 +109,7 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbyhistory")]
+        [HttpGet("GetByHistory")]
         public IActionResult GetByHistory(string history)
         {
             var result = _paymentService.GetByHistory(history);

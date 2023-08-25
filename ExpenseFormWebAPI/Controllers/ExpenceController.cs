@@ -16,7 +16,8 @@ namespace ExpenseFormWebAPI.Controllers
             _expenceService = expenceService;           
         }
 
-        [HttpPost("add")]
+        [HttpPost("Add")]
+
         public IActionResult Add(ExpenceDto expenceDto)
         {
             Expence expence = new Expence()
@@ -25,6 +26,9 @@ namespace ExpenseFormWebAPI.Controllers
                 Date = expenceDto.Date,
                 EmployeeDepartment = expenceDto.EmployeeDepartment,
                 EmployeeFirstName = expenceDto.EmployeeFirstName,
+
+                //EmployeeId = expenceDto.EmployeeId,
+
                 EmployeeLastName = expenceDto.EmployeeLastName,
                 Success = expenceDto.Success
             };
@@ -36,8 +40,9 @@ namespace ExpenseFormWebAPI.Controllers
 
             return BadRequest(result);
         }
+        
 
-        [HttpGet("getbyid")]
+        [HttpGet("GetById")]
         public IActionResult GetById(string id)
         {
             var result = _expenceService.GetById(id);
@@ -48,8 +53,10 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result);
         }
 
+
         [HttpPost("update")]
         public IActionResult Update(ExpenceDto expenceDto)
+
         {
             Expence expence = new Expence()
             {
@@ -71,6 +78,7 @@ namespace ExpenseFormWebAPI.Controllers
 
         [HttpPost("delete")]
         public IActionResult Delete(ExpenceDto expenceDto)
+
         {
             Expence expence = new Expence()
             {
@@ -91,6 +99,7 @@ namespace ExpenseFormWebAPI.Controllers
         }
 
         [HttpGet("getbydate")]
+
         public IActionResult GetByDepartment(string date)
         {
             var result = _expenceService.GetByDate(date);
@@ -102,6 +111,7 @@ namespace ExpenseFormWebAPI.Controllers
         }
 
         [HttpGet("getbyamount")]
+
         public IActionResult GetByAmount(string amount)
         {
             var result = _expenceService.GetByAmount(amount);
@@ -113,6 +123,7 @@ namespace ExpenseFormWebAPI.Controllers
         }
 
         [HttpGet("getall")]
+
         public IActionResult GetAll()
         {
 
