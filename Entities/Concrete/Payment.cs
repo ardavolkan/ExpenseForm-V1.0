@@ -21,5 +21,9 @@ namespace Entities.Concrete
 
         public string History { get; set; }
         public bool Success { get; set; }
+        public string DocumentDate { get; set; }
+        public double Total { get; set; }
+        public string DocumentDescription { get; set; }
+        public string CompanyName { get; set; }
     }
 }
