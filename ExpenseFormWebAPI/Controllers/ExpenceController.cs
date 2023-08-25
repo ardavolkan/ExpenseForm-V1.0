@@ -15,7 +15,7 @@ namespace ExpenseFormWebAPI.Controllers
         {
             _expenceService = expenceService;           
         }
-        [HttpPost("add")]
+        [HttpPost("Add")]
         public IActionResult Add(ExpenceDto expenceDto)
         {
             Expence expence = new Expence()
@@ -24,7 +24,7 @@ namespace ExpenseFormWebAPI.Controllers
                 Date = expenceDto.Date,
                 EmployeeDepartment = expenceDto.EmployeeDepartment,
                 EmployeeFirstName = expenceDto.EmployeeFirstName,
-                EmployeeId = expenceDto.EmployeeId,
+                //EmployeeId = expenceDto.EmployeeId,
                 EmployeeLastName = expenceDto.EmployeeLastName,
                 Success = expenceDto.Success
             };
@@ -36,7 +36,7 @@ namespace ExpenseFormWebAPI.Controllers
 
             return BadRequest(result);
         }
-        [HttpGet("getbyid")]
+        [HttpGet("GetById")]
         public IActionResult GetById(string id)
         {
             var result = _expenceService.GetById(id);
@@ -46,7 +46,7 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpPost("update")]
+        [HttpPost("Update")]
         public IActionResult Update(Expence expence)
         {
             var result = _expenceService.Update(expence);
@@ -56,7 +56,7 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpPost("delete")]
+        [HttpPost("Delete")]
         public IActionResult Delete(Expence expence)
         {
             var result = _expenceService.Delete(expence);
@@ -66,7 +66,7 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("getbydate")]
+        [HttpGet("GetByDate")]
         public IActionResult GetByDepartment(string date)
         {
             var result = _expenceService.GetByDate(date);
@@ -76,7 +76,7 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("getbyamount")]
+        [HttpGet("GetByAmount")]
         public IActionResult GetByAmount(string amount)
         {
             var result = _expenceService.GetByAmount(amount);
@@ -86,7 +86,7 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("getall")]
+        [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
 

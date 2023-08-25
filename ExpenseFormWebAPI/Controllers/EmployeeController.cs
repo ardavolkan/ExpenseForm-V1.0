@@ -14,7 +14,7 @@ namespace ExpenseFormWebAPI.Controllers
         {
             _employeeService = employeeService;
         }
-        [HttpGet("getall")]
+        [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
 
@@ -27,7 +27,7 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("add")]
+        [HttpPost("Add")]
         public IActionResult Add(EmployeeDto employeeDto)
         {
             Employee employee = new Employee()
@@ -35,7 +35,7 @@ namespace ExpenseFormWebAPI.Controllers
                 EmployeeDepartment = employeeDto.EmployeeDepartment,
                 EmployeeFirstName = employeeDto.EmployeeFirstName,
                 EmployeeLastName = employeeDto.EmployeeLastName,
-                EmployeeId = employeeDto.EmployeeId,
+               // EmployeeId = employeeDto.EmployeeId,
                 EmployeePhone = employeeDto.EmployeePhone,  
                 Success = employeeDto.Success
             };
@@ -47,7 +47,7 @@ namespace ExpenseFormWebAPI.Controllers
 
             return BadRequest(result);
         }
-        [HttpGet("getbyid")]
+        [HttpGet("GetById")]
         public IActionResult GetById(string id)
         {
             var result = _employeeService.GetById(id);
@@ -57,7 +57,7 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpPost("update")]
+        [HttpPost("Update")]
         public IActionResult Update(Employee employee)
         {
             var result = _employeeService.Update(employee);
@@ -67,7 +67,7 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpPost("delete")]
+        [HttpPost("Delete")]
         public IActionResult Delete(Employee employee)
         {
             var result = _employeeService.Delete(employee);
@@ -77,7 +77,7 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("getbyname")]
+        [HttpGet("GetByName")]
         public IActionResult GetByName(string name)
         {
             var result = _employeeService.GetByName(name);
@@ -87,7 +87,7 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("getbydepartment")]
+        [HttpGet("GetByDepartment")]
         public IActionResult GetByDepartment(string department)
         {
             var result = _employeeService.GetByDepartment(department);

@@ -14,7 +14,7 @@ namespace ExpenseFormWebAPI.Controllers
             _paymentService = paymentService;
         }
 
-        [HttpPost("add")]
+        [HttpPost("Add")]
         public ActionResult Add(Payment payment)
         {
             var result = _paymentService.Add(payment);
@@ -25,7 +25,7 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpGet("getall")]
+        [HttpGet("GetAll")]
         public ActionResult GetAll()
         {
             var result = _paymentService.GetAll();
@@ -38,7 +38,7 @@ namespace ExpenseFormWebAPI.Controllers
 
 
 
-        [HttpPost("delete")]
+        [HttpPost("Delete")]
         public ActionResult Delete(Payment payment)
         {
             var result = _paymentService.Delete(payment);
@@ -49,7 +49,7 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpPost("update")]
+        [HttpPost("Update")]
         public ActionResult Update(Payment payment)
         {
             var result = _paymentService.Update(payment);
@@ -60,7 +60,7 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpGet("getbyid")]
+        [HttpGet("GetById")]
         public IActionResult GetById(string id)
         {
             var result = _paymentService.GetById(id);
@@ -71,7 +71,7 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbyhistory")]
+        [HttpGet("GetByHistory")]
         public IActionResult GetByHistory(string history)
         {
             var result = _paymentService.GetByHistory(history);

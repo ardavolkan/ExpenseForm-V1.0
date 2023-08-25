@@ -14,7 +14,7 @@ namespace ExpenseFormWebAPI.Controllers
             _receiptService = receiptService;
         }
 
-        [HttpPost("add")]
+        [HttpPost("Add")]
         public ActionResult Add(Receipt receipt)
         {
             var result = _receiptService.Add(receipt);
@@ -25,7 +25,7 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result);
         }
         
-        [HttpPost("delete")]
+        [HttpPost("Delete")]
         public ActionResult Delete(Receipt receipt)
         {
             var result = _receiptService.Delete(receipt);
@@ -36,7 +36,7 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result);
         }
        
-        [HttpPost("update")]
+        [HttpPost("Update")]
         public ActionResult Update(Receipt receipt)
         {
             var result = _receiptService.Update(receipt);
@@ -47,7 +47,7 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result);
         }
       
-        [HttpGet("getall")]
+        [HttpGet("GetAll")]
         public ActionResult GetAll()
         {
             var result = _receiptService.GetAll();
@@ -58,7 +58,7 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbyıd")]
+        [HttpGet("GetById")]
         public ActionResult GetById(string Id)
         {
             var result = _receiptService.GetById(Id);
