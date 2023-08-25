@@ -51,16 +51,21 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
-        public IResult Update(Receipt receipt)
-        {
-            return _receiptDal.Get(u => u.ReceiptId == Id);
-        }
-
         [ValidationAspect(typeof(ReceiptValidator))]
         public IResult Update(Receipt receipt)
         {
             _receiptDal.Update(receipt);
             return new SuccessResult(Messages.ReceiptUpdated);
+        }
+
+        IDataResult<Receipt> IReceiptService.GetById(string Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        IDataResult<Receipt> IReceiptService.GetByName(string Name)
+        {
+            throw new NotImplementedException();
         }
     }
 }

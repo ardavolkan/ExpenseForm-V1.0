@@ -10,8 +10,8 @@ namespace Business.Abstract
         IDataResult<List<Receipt>> GetAll();
         IResult Delete(Receipt receipt);
         IResult Update(Receipt receipt);
-        IDataResult<Receipt> GetById(int Id);
-      IDataResult<Receipt> GetByName(string Name);
+        IDataResult<Receipt> GetById(string Id);
+        IDataResult<Receipt> GetByName(string Name);
 
     }
 }

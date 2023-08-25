@@ -35,8 +35,7 @@ namespace ExpenseFormWebAPI.Controllers
                 EmployeeDepartment = employeeDto.EmployeeDepartment,
                 EmployeeFirstName = employeeDto.EmployeeFirstName,
                 EmployeeLastName = employeeDto.EmployeeLastName,
-                EmployeeId = employeeDto.EmployeeId,
-                EmployeePhone = employeeDto.EmployeePhone,  
+                EmployeePhone = employeeDto.EmployeePhone,
                 Success = employeeDto.Success
             };
             var result = _employeeService.Add(employee);
@@ -58,8 +57,17 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("update")]
-        public IActionResult Update(Employee employee)
+        public IActionResult Update(EmployeeDto employeeDto)
         {
+            Employee employee = new Employee()
+            {
+                EmployeeDepartment = employeeDto.EmployeeDepartment,
+                EmployeeFirstName = employeeDto.EmployeeFirstName,
+                EmployeeLastName = employeeDto.EmployeeLastName,
+                EmployeePhone = employeeDto.EmployeePhone,
+                Success = employeeDto.Success
+            };
+
             var result = _employeeService.Update(employee);
             if (result.Success)
             {
@@ -68,8 +76,17 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("delete")]
-        public IActionResult Delete(Employee employee)
+        public IActionResult Delete(EmployeeDto employeeDto)
         {
+            Employee employee = new Employee()
+            {
+                EmployeeDepartment = employeeDto.EmployeeDepartment,
+                EmployeeFirstName = employeeDto.EmployeeFirstName,
+                EmployeeLastName = employeeDto.EmployeeLastName,
+                EmployeePhone = employeeDto.EmployeePhone,
+                Success = employeeDto.Success
+            };
+
             var result = _employeeService.Delete(employee);
             if (result.Success)
             {
