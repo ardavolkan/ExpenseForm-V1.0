@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
+using Entities.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExpenseFormWebAPI.Controllers
@@ -15,8 +16,21 @@ namespace ExpenseFormWebAPI.Controllers
         }
 
         [HttpPost("Add")]
-        public ActionResult Add(Receipt receipt)
+        public ActionResult Add(ReceiptDto receiptDto)
         {
+            Receipt receipt = new Receipt()
+            {
+                EmployeeDepartment = receiptDto.EmployeeDepartment,
+                EmployeeFirstName = receiptDto.EmployeeFirstName,
+                EmployeeLastName = receiptDto.EmployeeLastName,
+                DocumentDate  = receiptDto.DocumentDate,
+                Total = receiptDto.Total,
+                DocumentDescription = receiptDto.DocumentDescription,
+                CompanyName = receiptDto.CompanyName
+
+
+            };
+
             var result = _receiptService.Add(receipt);
             if (result.Success)
             {
@@ -26,8 +40,18 @@ namespace ExpenseFormWebAPI.Controllers
         }
         
         [HttpPost("Delete")]
-        public ActionResult Delete(Receipt receipt)
+        public ActionResult Delete(ReceiptDto receiptDto)
         {
+            Receipt receipt = new Receipt()
+            {
+                EmployeeDepartment = receiptDto.EmployeeDepartment,
+                EmployeeFirstName = receiptDto.EmployeeFirstName,
+                EmployeeLastName = receiptDto.EmployeeLastName,
+                DocumentDate = receiptDto.DocumentDate,
+                Total = receiptDto.Total,
+                DocumentDescription = receiptDto.DocumentDescription,
+                CompanyName = receiptDto.CompanyName
+            };
             var result = _receiptService.Delete(receipt);
             if (result.Success)
             {
@@ -37,8 +61,18 @@ namespace ExpenseFormWebAPI.Controllers
         }
        
         [HttpPost("Update")]
-        public ActionResult Update(Receipt receipt)
+        public ActionResult Update(ReceiptDto receiptDto)
         {
+            Receipt receipt = new Receipt()
+            {
+                EmployeeDepartment = receiptDto.EmployeeDepartment,
+                EmployeeFirstName = receiptDto.EmployeeFirstName,
+                EmployeeLastName = receiptDto.EmployeeLastName,
+                DocumentDate = receiptDto.DocumentDate,
+                Total = receiptDto.Total,
+                DocumentDescription = receiptDto.DocumentDescription,
+                CompanyName = receiptDto.CompanyName
+            };
             var result = _receiptService.Update(receipt);
             if (result.Success)
             {
