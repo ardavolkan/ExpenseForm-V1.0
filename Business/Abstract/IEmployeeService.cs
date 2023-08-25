@@ -12,9 +12,9 @@ namespace Business.Abstract
         IResult Delete(Employee employee0); //+
         IResult Update(Employee employee0); //+
         IDataResult<List<Employee>> GetAll(); //+
-        Employee GetById(string Id);  //+
-        Employee GetByName(string name); //+
-        Employee GetByDepartment(string department);
+        IDataResult<Employee> GetById(string Id);  //+
+        IDataResult<Employee> GetByName(string name); //+
+        IDataResult<Employee> GetByDepartment(string department);
 
     }
 }
