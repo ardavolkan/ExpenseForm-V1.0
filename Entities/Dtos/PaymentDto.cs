@@ -14,11 +14,14 @@ namespace Entities.Dtos
         public string EmployeeDepartment { get; set; }
 
         public string Amount { get; set; }
-        public string PaymentChoices { get; set; }
         public string Description { get; set; }
 
         public string History { get; set; }
         public bool Success { get; set; }
+        public string DocumentDate { get; set; }
+        public double Total { get; set; }
+        public string DocumentDescription { get; set; }
+        public string CompanyName { get; set; }
 
 
     }

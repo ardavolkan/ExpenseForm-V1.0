@@ -10,5 +10,6 @@ namespace DataAccess.Concrete.MongoDB
 {
     public class MongoDB_ReceiptDal : MongoDB_RepositoryBase<Receipt, MongoDB_Context<Receipt, MongoDB_ReceiptCollection>>, IReceiptDal
     {
+
     }
 }
