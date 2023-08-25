@@ -48,9 +48,9 @@ namespace Business.Concrete
             return (IDataResult<Employee>)_employeeDal.Get(u => u.Id == Id);
         }
 
-        public IDataResult<Employee> GetByName(string name)
+        public IDataResult<Employee> GetByName(string Firstname)
         {
-            return (IDataResult<Employee>)_employeeDal.Get(u => u.EmployeeFirstName == name);
+            return (IDataResult<Employee>)_employeeDal.Get(u => u.EmployeeFirstName == Firstname);
         }
 
         [ValidationAspect(typeof(EmployeeValidator))]
