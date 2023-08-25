@@ -13,6 +13,7 @@ namespace Entities.Dtos
         public string DocumentDate { get; set; }
         public double Total { get; set; }
         public string DocumentDescription { get; set; }
+        public string Employee { get; set; }
         public string CompanyName { get; set; }
 
 

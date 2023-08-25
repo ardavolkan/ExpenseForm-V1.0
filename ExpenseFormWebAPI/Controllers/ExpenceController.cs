@@ -15,7 +15,9 @@ namespace ExpenseFormWebAPI.Controllers
         {
             _expenceService = expenceService;           
         }
+
         [HttpPost("Add")]
+
         public IActionResult Add(ExpenceDto expenceDto)
         {
             Expence expence = new Expence()
@@ -24,7 +26,9 @@ namespace ExpenseFormWebAPI.Controllers
                 Date = expenceDto.Date,
                 EmployeeDepartment = expenceDto.EmployeeDepartment,
                 EmployeeFirstName = expenceDto.EmployeeFirstName,
+
                 //EmployeeId = expenceDto.EmployeeId,
+
                 EmployeeLastName = expenceDto.EmployeeLastName,
                 Success = expenceDto.Success
             };
@@ -36,6 +40,8 @@ namespace ExpenseFormWebAPI.Controllers
 
             return BadRequest(result);
         }
+        
+
         [HttpGet("GetById")]
         public IActionResult GetById(string id)
         {
@@ -46,9 +52,22 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpPost("Update")]
-        public IActionResult Update(Expence expence)
+
+
+        [HttpPost("update")]
+        public IActionResult Update(ExpenceDto expenceDto)
+
         {
+            Expence expence = new Expence()
+            {
+                Amount = expenceDto.Amount,
+                Date = expenceDto.Date,
+                EmployeeDepartment = expenceDto.EmployeeDepartment,
+                EmployeeFirstName = expenceDto.EmployeeFirstName,
+                EmployeeLastName = expenceDto.EmployeeLastName,
+                Success = expenceDto.Success
+            }; 
+
             var result = _expenceService.Update(expence);
             if (result.Success)
             {
@@ -56,9 +75,21 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpPost("Delete")]
-        public IActionResult Delete(Expence expence)
+
+        [HttpPost("delete")]
+        public IActionResult Delete(ExpenceDto expenceDto)
+
         {
+            Expence expence = new Expence()
+            {
+                Amount = expenceDto.Amount,
+                Date = expenceDto.Date,
+                EmployeeDepartment = expenceDto.EmployeeDepartment,
+                EmployeeFirstName = expenceDto.EmployeeFirstName,
+                EmployeeLastName = expenceDto.EmployeeLastName,
+                Success = expenceDto.Success
+            };
+
             var result = _expenceService.Delete(expence);
             if (result.Success)
             {
@@ -66,7 +97,9 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("GetByDate")]
+
+        [HttpGet("getbydate")]
+
         public IActionResult GetByDepartment(string date)
         {
             var result = _expenceService.GetByDate(date);
@@ -76,7 +109,9 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("GetByAmount")]
+
+        [HttpGet("getbyamount")]
+
         public IActionResult GetByAmount(string amount)
         {
             var result = _expenceService.GetByAmount(amount);
@@ -86,7 +121,9 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("GetAll")]
+
+        [HttpGet("getall")]
+
         public IActionResult GetAll()
         {
 

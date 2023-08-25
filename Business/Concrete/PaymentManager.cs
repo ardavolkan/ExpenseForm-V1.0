@@ -45,16 +45,26 @@ namespace Business.Concrete
         }
 
 
-        public Payment GetById(int Id)
-        {
-            return _paymentDal.Get(u => u.Id == Id);
-        }
+        //public Payment GetById(string Id)
+        //{
+        //    return _paymentDal.Get(u => u.Id. == Id);
+        //}
 
         [ValidationAspect(typeof(PaymentValidator))]
         public IResult Update(Payment payment)
         {
             _paymentDal.Update(payment);
             return new SuccessResult(Messages.PaymentUpdated);
+        }
+
+        IDataResult<Payment> IPaymentService.GetByHistory(string history)
+        {
+            throw new NotImplementedException();
+        }
+
+        IDataResult<Payment> IPaymentService.GetById(string Id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -7,7 +7,6 @@ namespace Entities.Dtos
 {
     public class ExpenceDto: IDto
     {
-        //Harcama Detayyı
         public string EmployeeFirstName { get; set; }
         public string EmployeeLastName { get; set; }
         public string EmployeeDepartment { get; set; }
