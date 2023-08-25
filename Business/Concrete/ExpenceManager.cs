@@ -8,6 +8,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static MongoDB.Driver.WriteConcern;
 
 namespace Business.Concrete
 {
@@ -36,22 +37,12 @@ namespace Business.Concrete
 
         public IDataResult<List<Expence>> GetAll()
         {
-            return new SuccessDataResult<List<Expence>>(Messages.ExpenceListed);
+            return new SuccessDataResult<List<Expence>>(_expenceDal.GetAll(),Messages.ExpenceListed);
         }
 
-        public Expence GetByAmount(string amount)
+        public IDataResult<Expence> GetByAmount(string amount)
         {
-            return _expenceDal.Get(u=>u.Amount==amount);
-        }
-
-        public Expence GetByDate(string date)
-        {
-            return _expenceDal.Get(u => u.Date == date);
-        }
-
-        public Expence GetById(string Id)
-        {
-            return _expenceDal.Get(u=>u.Id==Id);
+            return (IDataResult<Expence>)_expenceDal.Get(u => u.Amount == amount);
         }
 
         [ValidationAspect(typeof(ExpenceValidator))]
@@ -59,6 +50,16 @@ namespace Business.Concrete
         {
             _expenceDal.Update(expence);
             return new SuccessResult(Messages.ExpenceUpdated);
+        }
+
+        IDataResult<Expence> IExpenceService.GetByDate(string date)
+        {
+            return (IDataResult<Expence>)_expenceDal.Get(u => u.Date == date);
+        }
+
+        IDataResult<Expence> IExpenceService.GetById(string Id)
+        {
+            return (IDataResult<Expence>)_expenceDal.Get(u => u.Id == Id);
         }
     }
 }

@@ -11,9 +11,9 @@ namespace Business.Abstract
         IResult Add(Expence expence);
         IResult Delete(Expence expence);
         IResult Update(Expence expence);
-        Expence GetByDate(string date);
-        Expence GetById(string Id);
-        Expence GetByAmount(string amount);
+        IDataResult<Expence> GetByDate(string date);
+        IDataResult<Expence> GetById(string Id);
+        IDataResult<Expence> GetByAmount(string amount);
         IDataResult<List<Expence>> GetAll();
     }
 }

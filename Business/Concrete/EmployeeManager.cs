@@ -35,22 +35,22 @@ namespace Business.Concrete
 
         public IDataResult<List<Employee>> GetAll()
         {
-            return new SuccessDataResult<List<Employee>>(_employeeDal.GetAll());
+            return new SuccessDataResult<List<Employee>>(_employeeDal.GetAll(),Messages.EmployeeListed);
         }
 
-        public Employee GetByDepartment(string department)
+        public IDataResult<Employee> GetByDepartment(string department)
         {
-            return _employeeDal.Get(u => u.EmployeeDepartment == department);
+            return (IDataResult<Employee>)_employeeDal.Get(u => u.EmployeeDepartment == department);
         }
 
-        public Employee GetById(string Id)
+        public IDataResult<Employee> GetById(string Id)
         {
-            return _employeeDal.Get(u => u.EmployeeId == Id);
+            return (IDataResult<Employee>)_employeeDal.Get(u => u.Id == Id);
         }
 
-        public Employee GetByName(string name)
+        public IDataResult<Employee> GetByName(string name)
         {
-            return _employeeDal.Get(u => u.EmployeeFirstName == name);
+            return (IDataResult<Employee>)_employeeDal.Get(u => u.EmployeeFirstName == name);
         }
 
         [ValidationAspect(typeof(EmployeeValidator))]

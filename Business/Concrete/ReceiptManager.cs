@@ -8,6 +8,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Linq;
 
 namespace Business.Concrete
 {
@@ -19,7 +20,7 @@ namespace Business.Concrete
         {
             _receiptDal = receiptDal;
         }
-        
+
         [ValidationAspect(typeof(ReceiptValidator))]
         public IResult Add(Receipt receipt)
         {
@@ -38,17 +39,7 @@ namespace Business.Concrete
         public IDataResult<List<Receipt>> GetAll()
         {
 
-            return new SuccessDataResult<List<Receipt>>(Messages.ReceiptListed);
-        }
-
-        public Receipt GetById(string Id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Receipt GetByName(string Name)
-        {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Receipt>>(_receiptDal.GetAll(), Messages.ReceiptListed);
         }
 
         [ValidationAspect(typeof(ReceiptValidator))]
@@ -60,12 +51,12 @@ namespace Business.Concrete
 
         IDataResult<Receipt> IReceiptService.GetById(string Id)
         {
-            throw new NotImplementedException();
+            return (IDataResult<Receipt>)_receiptDal.Get(u => u.ReceiptId == Id);
         }
 
         IDataResult<Receipt> IReceiptService.GetByName(string Name)
         {
-            throw new NotImplementedException();
+            return (IDataResult<Receipt>)_receiptDal.Get(u => u.EmployeeFirstName == Name);
         }
     }
 }
