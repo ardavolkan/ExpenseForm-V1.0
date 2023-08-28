@@ -2,14 +2,16 @@
 using Core.Entities.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.MongoDB.Collections;
+using Entities.Concrete;
+using System.Linq;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace DataAccess.Concrete.MongoDB
 {
+
     public class MongoDB_UserDal : MongoDB_RepositoryBase<User, MongoDB_Context<User, MongoDB_UserCollection>>, IUserDal
     {
         public List<OperationClaim> GetClaims(User user)
@@ -41,7 +43,6 @@ namespace DataAccess.Concrete.MongoDB
             }
 
             return _currentUserOperationClaims;
-
         }
     }
 }
