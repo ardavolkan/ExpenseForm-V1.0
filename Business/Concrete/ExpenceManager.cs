@@ -42,7 +42,7 @@ namespace Business.Concrete
 
         public IDataResult<Expence> GetByAmount(string amount)
         {
-            return (IDataResult<Expence>)_expenceDal.Get(u => u.Amount == amount);
+            return new SuccessDataResult<Expence>(_expenceDal.Get(u => u.Amount == amount));
         }
 
         [ValidationAspect(typeof(ExpenceValidator))]
@@ -54,12 +54,12 @@ namespace Business.Concrete
 
         IDataResult<Expence> IExpenceService.GetByDate(string date)
         {
-            return (IDataResult<Expence>)_expenceDal.Get(u => u.Date == date);
+            return new SuccessDataResult<Expence>(_expenceDal.Get(u => u.Date == date));
         }
 
         IDataResult<Expence> IExpenceService.GetById(string Id)
         {
-            return (IDataResult<Expence>)_expenceDal.Get(u => u.Id == Id);
+            return new SuccessDataResult<Expence>(_expenceDal.Get(u => u.Id == Id));
         }
     }
 }

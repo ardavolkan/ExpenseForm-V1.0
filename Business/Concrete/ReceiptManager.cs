@@ -51,12 +51,12 @@ namespace Business.Concrete
 
         IDataResult<Receipt> IReceiptService.GetById(string Id)
         {
-            return (IDataResult<Receipt>)_receiptDal.Get(u => u.ReceiptId == Id);
+            return new SuccessDataResult<Receipt>(_receiptDal.Get(u => u.Id == Id));
         }
 
         IDataResult<Receipt> IReceiptService.GetByName(string Name)
         {
-            return (IDataResult<Receipt>)_receiptDal.Get(u => u.EmployeeFirstName == Name);
+            return new SuccessDataResult<Receipt>(_receiptDal.Get(u => u.EmployeeFirstName == Name));
         }
 
 

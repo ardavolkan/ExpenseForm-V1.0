@@ -8,6 +8,7 @@ using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.Databases.MongoDB.Utilities.ConnectionResolvers;
 using DataAccess.Concrete.MongoDB;
+using DataAccess.Concrete.MongoDB.Collections;
 
 namespace Business.DependencyResolvers.Autofac
 {
@@ -16,11 +17,12 @@ namespace Business.DependencyResolvers.Autofac
         protected override void Load(ContainerBuilder builder)
         {
 
-            //builder.RegisterType<ReceiptManager>().As<IReceiptService>().SingleInstance();
-            //builder.RegisterType<MongoDB_ReceiptDal>().As<IReceiptDal>().SingleInstance();
+            builder.RegisterType<ReceiptManager>().As<IReceiptService>().SingleInstance();
+            builder.RegisterType<MongoDB_ReceiptDal>().As<IReceiptDal>().SingleInstance();
 
             builder.RegisterType<EmployeeManager>().As<IEmployeeService>().SingleInstance();
             builder.RegisterType<MongoDB_EmployeeDal>().As<IEmployeeDal>().SingleInstance();
+
 
             builder.RegisterType<ReceiptManager>().As<IReceiptService>().SingleInstance();
             builder.RegisterType<MongoDB_ReceiptDal>().As<IReceiptDal>().SingleInstance();
@@ -41,8 +43,6 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>().SingleInstance();
-
-
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
