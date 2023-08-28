@@ -19,24 +19,28 @@ namespace Business.Concrete
             _paymentDal = paymentDal;
         }
 
+        [ValidationAspect(typeof(PaymentValidator))]
         public IResult Add(Payment payment)
         {
-            throw new NotImplementedException();
+            _paymentDal.Add(payment);
+            return new SuccessResult(Messages.PaymentAdded);
         }
 
+        [ValidationAspect(typeof(PaymentValidator))]
         public IResult Delete(Payment payment)
         {
-            throw new NotImplementedException();
+            _paymentDal.Delete(payment);
+            return new SuccessResult(Messages.PaymentDeleted);
         }
 
         public IDataResult<List<Payment>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Payment>>(_paymentDal.GetAll(), Messages.PaymentListed);
         }
 
         public IDataResult<Payment> GetByHistory(string history)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Payment>(_paymentDal.Get(u => u.History == history));
         }
 
         public IDataResult<Payment> GetById(string Id)
@@ -44,46 +48,12 @@ namespace Business.Concrete
             return new SuccessDataResult<Payment>(_paymentDal.Get(u => u.Id == Id));
         }
 
+        [ValidationAspect(typeof(PaymentValidator))]
         public IResult Update(Payment payment)
         {
-            throw new NotImplementedException();
+            _paymentDal.Update(payment);
+            return new SuccessResult(Messages.PaymentUpdated);
         }
 
-        //[ValidationAspect(typeof(PaymentValidator))]
-        //public IResult Add(Payment payment)
-        //{
-        //    _paymentDal.Add(payment);
-        //    return new SuccessResult(Messages.PaymentAdded);
-        //}
-
-        //[ValidationAspect(typeof(PaymentValidator))]
-        //public IResult Delete(Payment payment)
-        //{
-        //    _paymentDal.Delete(payment);
-        //    return new SuccessResult(Messages.PaymentDeleted);
-        //}
-
-        //public IDataResult<List<Payment>> GetAll()
-        //{
-        //    return new SuccessDataResult<List<Payment>>(_paymentDal.GetAll(),Messages.PaymentListed);
-        //}
-
-
-        //[ValidationAspect(typeof(PaymentValidator))]
-        //public IResult Update(Payment payment)
-        //{
-        //    _paymentDal.Update(payment);
-        //    return new SuccessResult(Messages.PaymentUpdated);
-        //}
-
-        //IDataResult<Payment> IPaymentService.GetByHistory(string history)
-        //{
-        //    return new SuccessDataResult<Payment>(_paymentDal.Get(u => u.History == history));
-        //}
-
-        //IDataResult<Payment> GetById(string id)
-        //{
-        //    return new SuccessDataResult<Payment>(_paymentDal.Get(u => u.Id == id));
-        //}
     }
 }

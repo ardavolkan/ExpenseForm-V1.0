@@ -33,13 +33,21 @@ namespace Business.Concrete
         {
             _receiptDal.Delete(receipt);
             return new SuccessResult(Messages.ReceiptDeleted);
-
         }
 
         public IDataResult<List<Receipt>> GetAll()
         {
-
             return new SuccessDataResult<List<Receipt>>(_receiptDal.GetAll(), Messages.ReceiptListed);
+        }
+
+        public IDataResult<Receipt> GetById(string Id)
+        {
+            return new SuccessDataResult<Receipt>(_receiptDal.Get(u => u.Id == Id));
+        }
+
+        public IDataResult<Receipt> GetByName(string Name)
+        {
+            return new SuccessDataResult<Receipt>(_receiptDal.Get(u => u.EmployeeFirstName == Name));
         }
 
         [ValidationAspect(typeof(ReceiptValidator))]
@@ -47,16 +55,6 @@ namespace Business.Concrete
         {
             _receiptDal.Update(receipt);
             return new SuccessResult(Messages.ReceiptUpdated);
-        }
-
-        IDataResult<Receipt> IReceiptService.GetById(string Id)
-        {
-            return new SuccessDataResult<Receipt>(_receiptDal.Get(u => u.Id == Id));
-        }
-
-        IDataResult<Receipt> IReceiptService.GetByName(string Name)
-        {
-            return new SuccessDataResult<Receipt>(_receiptDal.Get(u => u.EmployeeFirstName == Name));
         }
 
 
