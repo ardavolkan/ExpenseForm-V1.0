@@ -40,17 +40,17 @@ namespace Business.Concrete
 
         public IDataResult<Employee> GetByDepartment(string department)
         {
-            return (IDataResult<Employee>)_employeeDal.Get(u => u.EmployeeDepartment == department);
+            return new SuccessDataResult<Employee>(_employeeDal.Get(u => u.EmployeeDepartment == department));
         }
 
         public IDataResult<Employee> GetById(string Id)
         {
-            return (IDataResult<Employee>)_employeeDal.Get(u => u.Id == Id);
+            return new SuccessDataResult<Employee> (_employeeDal.Get(u => u.Id == Id));
         }
 
         public IDataResult<Employee> GetByName(string Firstname)
         {
-            return (IDataResult<Employee>)_employeeDal.Get(u => u.EmployeeFirstName == Firstname);
+            return new SuccessDataResult<Employee>(_employeeDal.Get(u => u.EmployeeFirstName == Firstname));
         }
 
         [ValidationAspect(typeof(EmployeeValidator))]

@@ -18,7 +18,7 @@ namespace Business.Concrete
         {
             _paymentDal = paymentDal;
         }
-       
+
         [ValidationAspect(typeof(PaymentValidator))]
         public IResult Add(Payment payment)
         {
@@ -35,9 +35,18 @@ namespace Business.Concrete
 
         public IDataResult<List<Payment>> GetAll()
         {
-            return new SuccessDataResult<List<Payment>>(_paymentDal.GetAll(),Messages.PaymentListed);
+            return new SuccessDataResult<List<Payment>>(_paymentDal.GetAll(), Messages.PaymentListed);
         }
 
+        public IDataResult<Payment> GetByHistory(string history)
+        {
+            return new SuccessDataResult<Payment>(_paymentDal.Get(u => u.History == history));
+        }
+
+        public IDataResult<Payment> GetById(string Id)
+        {
+            return new SuccessDataResult<Payment>(_paymentDal.Get(u => u.Id == Id));
+        }
 
         [ValidationAspect(typeof(PaymentValidator))]
         public IResult Update(Payment payment)
@@ -46,14 +55,5 @@ namespace Business.Concrete
             return new SuccessResult(Messages.PaymentUpdated);
         }
 
-        IDataResult<Payment> IPaymentService.GetByHistory(string history)
-        {
-            return (IDataResult<Payment>)_paymentDal.Get(u=>u.History==history);
-        }
-
-        IDataResult<Payment> IPaymentService.GetById(string Id)
-        {
-            return(IDataResult<Payment>)_paymentDal.Get(u => u.Id == Id);
-        }
     }
 }

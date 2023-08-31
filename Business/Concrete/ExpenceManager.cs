@@ -37,12 +37,22 @@ namespace Business.Concrete
 
         public IDataResult<List<Expence>> GetAll()
         {
-            return new SuccessDataResult<List<Expence>>(_expenceDal.GetAll(),Messages.ExpenceListed);
+            return new SuccessDataResult<List<Expence>>(_expenceDal.GetAll(), Messages.ExpenceListed);
         }
 
         public IDataResult<Expence> GetByAmount(string amount)
         {
-            return (IDataResult<Expence>)_expenceDal.Get(u => u.Amount == amount);
+            return new SuccessDataResult<Expence>(_expenceDal.Get(u => u.Amount == amount));
+        }
+
+        public IDataResult<Expence> GetByDate(string date)
+        {
+            return new SuccessDataResult<Expence>(_expenceDal.Get(u => u.Date == date));
+        }
+
+        public IDataResult<Expence> GetById(string Id)
+        {
+            return new SuccessDataResult<Expence>(_expenceDal.Get(u => u.Id == Id));
         }
 
         [ValidationAspect(typeof(ExpenceValidator))]
@@ -50,16 +60,6 @@ namespace Business.Concrete
         {
             _expenceDal.Update(expence);
             return new SuccessResult(Messages.ExpenceUpdated);
-        }
-
-        IDataResult<Expence> IExpenceService.GetByDate(string date)
-        {
-            return (IDataResult<Expence>)_expenceDal.Get(u => u.Date == date);
-        }
-
-        IDataResult<Expence> IExpenceService.GetById(string Id)
-        {
-            return (IDataResult<Expence>)_expenceDal.Get(u => u.Id == Id);
         }
     }
 }
