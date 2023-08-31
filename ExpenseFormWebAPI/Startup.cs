@@ -66,7 +66,7 @@ namespace OrianaWebAPI
             }
          
             app.ConfigureCustomExceptionMiddleware();
-            app.UseCors(builder => builder.WithOrigins("localhost:4200").AllowAnyHeader());
+            app.UseCors(builder => builder.WithOrigins("mongodb://localhost:27017").AllowAnyHeader());
 
 
 
