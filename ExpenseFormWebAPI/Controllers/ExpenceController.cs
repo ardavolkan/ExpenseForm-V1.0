@@ -89,8 +89,8 @@ namespace ExpenseFormWebAPI.Controllers
                 EmployeeLastName = expenceDto.EmployeeLastName,
                 Success = expenceDto.Success
             };
-
-            var result = _expenceService.Delete(expence);
+            var data = _expenceService.GetByAmount(expence.Amount);
+            var result = _expenceService.Delete(data.Data); ;
             if (result.Success)
             {
                 return Ok(result);
