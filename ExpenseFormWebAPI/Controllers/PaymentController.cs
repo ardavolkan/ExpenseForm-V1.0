@@ -29,7 +29,7 @@ namespace ExpenseFormWebAPI.Controllers
                 History = paymentDto.History,
                 EmployeeLastName = paymentDto.EmployeeLastName,
                 Success = paymentDto.Success,
-                Description = paymentDto.Description,
+               // Description = paymentDto.Description,
                 DocumentDate = paymentDto.DocumentDate,
                 DocumentDescription = paymentDto.DocumentDescription,
                 CompanyName = paymentDto.CompanyName,

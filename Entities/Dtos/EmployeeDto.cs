@@ -11,8 +11,8 @@ namespace Entities.Dtos
         public string EmployeeLastName { get; set; }
         public string EmployeeDepartment { get; set; }
         public string EmployeePhone { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
+       // public string Email { get; set; }
+       // public string Password { get; set; }
         public bool Success { get; set; }
     }
 }
