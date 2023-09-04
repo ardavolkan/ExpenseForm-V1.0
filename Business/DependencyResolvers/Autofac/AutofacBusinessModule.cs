@@ -23,13 +23,6 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EmployeeManager>().As<IEmployeeService>().SingleInstance();
             builder.RegisterType<MongoDB_EmployeeDal>().As<IEmployeeDal>().SingleInstance();
 
-
-            builder.RegisterType<ReceiptManager>().As<IReceiptService>().SingleInstance();
-            builder.RegisterType<MongoDB_ReceiptDal>().As<IReceiptDal>().SingleInstance();
-
-            builder.RegisterType<EmployeeManager>().As<IEmployeeService>().SingleInstance();
-            builder.RegisterType<MongoDB_EmployeeDal>().As<IEmployeeDal>().SingleInstance();
-
             builder.RegisterType<PaymentManager>().As<IPaymentService>().SingleInstance();
             builder.RegisterType<MongoDB_PaymentDal>().As<IPaymentDal>().SingleInstance();
 
