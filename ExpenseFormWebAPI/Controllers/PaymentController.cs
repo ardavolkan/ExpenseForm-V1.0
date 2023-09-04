@@ -30,11 +30,7 @@ namespace ExpenseFormWebAPI.Controllers
                 EmployeeLastName = paymentDto.EmployeeLastName,
                 Success = paymentDto.Success,
                 Description = paymentDto.Description,
-                DocumentDate = paymentDto.DocumentDate,
-                DocumentDescription = paymentDto.DocumentDescription,
-                CompanyName = paymentDto.CompanyName,
-                Total = paymentDto.Total,
-
+                CompanyName = paymentDto.CompanyName
             };
 
             var result = _paymentService.Add(payment);

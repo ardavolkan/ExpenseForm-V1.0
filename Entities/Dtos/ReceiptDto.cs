@@ -15,6 +15,5 @@ namespace Entities.Dtos
         public string DocumentDescription { get; set; } //+
         public string CompanyName { get; set; }
 
-
     }
 }
