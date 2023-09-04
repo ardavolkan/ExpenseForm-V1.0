@@ -32,8 +32,8 @@ namespace ExpenseFormWebAPI.Controllers
                 Success = paymentDto.Success,
                 CompanyName= paymentDto.CompanyName
             };
-
-            var result = _paymentService.Add(payment);
+            var data = _paymentService.GetById(payment.EmployeeFirstName);
+            var result = _paymentService.Delete(data.Data); ;
             if (result.Success)
             {
                 return Ok(result);

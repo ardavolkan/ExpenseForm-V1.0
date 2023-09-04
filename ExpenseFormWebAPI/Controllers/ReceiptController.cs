@@ -52,7 +52,9 @@ namespace ExpenseFormWebAPI.Controllers
                 DocumentDescription = receiptDto.DocumentDescription,
                 CompanyName = receiptDto.CompanyName
             };
-            var result = _receiptService.Delete(receipt);
+
+            var data = _receiptService.GetByName(receipt.EmployeeFirstName);
+            var result = _receiptService.Delete(data.Data); ;
             if (result.Success)
             {
                 return Ok(result);
