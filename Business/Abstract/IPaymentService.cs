@@ -13,6 +13,7 @@ namespace Business.Abstract
         IResult Delete(Payment payment);
         IResult Update(Payment payment);
         IDataResult<Payment> GetById(string Id);
+        IDataResult<Payment> GetByName(string employeeFirstName);
         IDataResult<Payment> GetByHistory(string history);
     }
 }

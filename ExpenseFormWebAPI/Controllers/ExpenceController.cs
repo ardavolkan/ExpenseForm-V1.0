@@ -18,7 +18,7 @@ namespace ExpenseFormWebAPI.Controllers
 
         [HttpPost("Add")]
 
-        public IActionResult Add(ExpenceDto expenceDto)
+        public ActionResult Add(ExpenceDto expenceDto)
         {
             Expence expence = new Expence()
             {
@@ -40,10 +40,9 @@ namespace ExpenseFormWebAPI.Controllers
 
             return BadRequest(result);
         }
-        
 
         [HttpGet("GetById")]
-        public IActionResult GetById(string id)
+        public ActionResult GetById(string id)
         {
             var result = _expenceService.GetById(id);
             if (result.Success)
@@ -55,7 +54,7 @@ namespace ExpenseFormWebAPI.Controllers
 
 
         [HttpPost("update")]
-        public IActionResult Update(ExpenceDto expenceDto)
+        public ActionResult Update(ExpenceDto expenceDto)
 
         {
             Expence expence = new Expence()
@@ -77,7 +76,7 @@ namespace ExpenseFormWebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(ExpenceDto expenceDto)
+        public ActionResult Delete(ExpenceDto expenceDto)
 
         {
             Expence expence = new Expence()
@@ -100,7 +99,7 @@ namespace ExpenseFormWebAPI.Controllers
 
         [HttpGet("getbydate")]
 
-        public IActionResult GetByDepartment(string date)
+        public ActionResult GetByDepartment(string date)
         {
             var result = _expenceService.GetByDate(date);
             if (result.Success)
@@ -112,7 +111,7 @@ namespace ExpenseFormWebAPI.Controllers
 
         [HttpGet("getbyamount")]
 
-        public IActionResult GetByAmount(string amount)
+        public ActionResult GetByAmount(string amount)
         {
             var result = _expenceService.GetByAmount(amount);
             if (result.Success)
@@ -124,7 +123,7 @@ namespace ExpenseFormWebAPI.Controllers
 
         [HttpGet("getall")]
 
-        public IActionResult GetAll()
+        public ActionResult GetAll()
         {
 
             var result = _expenceService.GetAll();
