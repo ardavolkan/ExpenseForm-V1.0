@@ -107,6 +107,16 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("GetByEmployeeCount")]
+        public ActionResult GetByEmployeeCount()
+        {
+            var result = _employeeService.GetByEmployeeCount();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
     }
     }

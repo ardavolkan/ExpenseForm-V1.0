@@ -5,8 +5,11 @@ using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.Dtos;
+using FluentValidation.Validators;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -41,6 +44,11 @@ namespace Business.Concrete
         public IDataResult<Employee> GetByDepartment(string department)
         {
             return new SuccessDataResult<Employee>(_employeeDal.Get(u => u.EmployeeDepartment == department));
+        }
+
+        public IDataResult<EmployeeCountDto> GetByEmployeeCount()
+        {
+            return new SuccessDataResult<EmployeeCountDto>(_employeeDal.GetCount());
         }
 
         public IDataResult<Employee> GetById(string Id)
