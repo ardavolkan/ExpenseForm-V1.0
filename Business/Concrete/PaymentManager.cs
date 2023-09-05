@@ -27,9 +27,9 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(PaymentValidator))]
-        public IResult Delete(Payment payment)
+        public IResult Delete(string id)
         {
-            _paymentDal.Delete(payment);
+            _paymentDal.Delete(id);
             return new SuccessResult(Messages.PaymentDeleted);
         }
 

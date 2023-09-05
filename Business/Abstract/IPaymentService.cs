@@ -10,7 +10,7 @@ namespace Business.Abstract
     {
         IDataResult<List<Payment>> GetAll();
         IResult Add(Payment payment);
-        IResult Delete(Payment payment);
+        IResult Delete(string id);
         IResult Update(Payment payment);
         IDataResult<Payment> GetById(string Id);
         IDataResult<Payment> GetByName(string employeeFirstName);

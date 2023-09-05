@@ -29,9 +29,9 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(ExpenceValidator))]
-        public IResult Delete(Expence expence)
+        public IResult Delete(string  id)
         {
-            _expenceDal.Delete(expence);
+            _expenceDal.Delete(id);
             return new SuccessResult(Messages.ExpenceDeleted);
         }
 

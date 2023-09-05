@@ -76,21 +76,10 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpPost("Delete")]
-        public ActionResult Delete(EmployeeDto employeeDto)
-
+        [HttpGet("Delete")]
+        public ActionResult Delete(string id)
         {
-            Employee employee = new Employee()
-            {
-                EmployeeDepartment = employeeDto.EmployeeDepartment,
-                EmployeeFirstName = employeeDto.EmployeeFirstName,
-                EmployeeLastName = employeeDto.EmployeeLastName,
-                EmployeePhone = employeeDto.EmployeePhone,
-                Success = employeeDto.Success
-            };
-
-            var data = _employeeService.GetByName(employee.EmployeeFirstName);
-            var result = _employeeService.Delete(data.Data);;
+            var result = _employeeService.Delete(id);
             if (result.Success)
             {
                 return Ok(result);

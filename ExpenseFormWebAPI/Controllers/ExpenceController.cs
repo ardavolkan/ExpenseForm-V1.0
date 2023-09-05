@@ -75,21 +75,10 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("delete")]
-        public ActionResult Delete(ExpenceDto expenceDto)
-
+        [HttpGet("delete")]
+        public ActionResult Delete(string id)
         {
-            Expence expence = new Expence()
-            {
-                Amount = expenceDto.Amount,
-                Date = expenceDto.Date,
-                EmployeeDepartment = expenceDto.EmployeeDepartment,
-                EmployeeFirstName = expenceDto.EmployeeFirstName,
-                EmployeeLastName = expenceDto.EmployeeLastName,
-                Success = expenceDto.Success
-            };
-            var data = _expenceService.GetByAmount(expence.Amount);
-            var result = _expenceService.Delete(data.Data); ;
+            var result = _expenceService.Delete(id);
             if (result.Success)
             {
                 return Ok(result);

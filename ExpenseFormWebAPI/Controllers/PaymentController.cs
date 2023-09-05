@@ -28,12 +28,9 @@ namespace ExpenseFormWebAPI.Controllers
                 EmployeeFirstName = paymentDto.EmployeeFirstName,
                 History = paymentDto.History,
                 EmployeeLastName = paymentDto.EmployeeLastName,
-                Description=paymentDto.Description,
-                Success = paymentDto.Success,
-                CompanyName= paymentDto.CompanyName
+
             };
-            var data = _paymentService.GetById(payment.EmployeeFirstName);
-            var result = _paymentService.Delete(data.Data); ;
+            var result = _paymentService.Add(payment); ;
             if (result.Success)
             {
                 return Ok(result);
@@ -53,20 +50,9 @@ namespace ExpenseFormWebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public ActionResult Delete(PaymentDto paymentDto)
+        public ActionResult Delete(string id)
         {
-            Payment payment = new Payment()
-            {
-                Amount = paymentDto.Amount,
-                EmployeeDepartment = paymentDto.EmployeeDepartment,
-                EmployeeFirstName = paymentDto.EmployeeFirstName,
-                History = paymentDto.History,
-                EmployeeLastName = paymentDto.EmployeeLastName,
-                Success = paymentDto.Success,
-                Description = paymentDto.Description
-            };
-            var data = _paymentService.GetByName(payment.EmployeeFirstName);
-            var result = _paymentService.Delete(data.Data); ;
+            var result = _paymentService.Delete(id);
             if (result.Success)
             {
                 return Ok(result);
