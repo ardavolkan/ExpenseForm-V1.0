@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Business.Abstract
         IDataResult<Employee> GetById(string Id);  //+
         IDataResult<Employee> GetByName(string name); //+
         IDataResult<Employee> GetByDepartment(string department);
+        IDataResult<EmployeeCountDto> GetByEmployeeCount();
 
     }
 }
