@@ -28,7 +28,7 @@ namespace ExpenseFormWebAPI.Controllers
                 EmployeeFirstName = paymentDto.EmployeeFirstName,
                 History = paymentDto.History,
                 EmployeeLastName = paymentDto.EmployeeLastName,
-                Success = paymentDto.Success
+
             };
             var result = _paymentService.Add(payment); ;
             if (result.Success)
