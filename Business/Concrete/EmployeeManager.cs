@@ -27,9 +27,9 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(EmployeeValidator))]
-        public IResult Delete(Employee employee)
+        public IResult Delete(string id)
         {
-            _employeeDal.Delete(employee);
+            _employeeDal.Delete(id);
             return new SuccessResult(Messages.EmployeeDeleted);
         }
 

@@ -9,7 +9,7 @@ namespace Business.Abstract
     public interface IEmployeeService
     {
         IResult Add(Employee employee0);  //+
-        IResult Delete(Employee employee0); //+
+        IResult Delete(string id); //+
         IResult Update(Employee employee0); //+
         IDataResult<List<Employee>> GetAll(); //+
         IDataResult<Employee> GetById(string Id);  //+

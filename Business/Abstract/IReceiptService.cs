@@ -8,7 +8,7 @@ namespace Business.Abstract
     {
         IResult Add(Receipt receipt);
         IDataResult<List<Receipt>> GetAll();
-        IResult Delete(Receipt receipt);
+        IResult Delete(string id);
         IResult Update(Receipt receipt);
         IDataResult<Receipt> GetById(string Id);
         IDataResult<Receipt> GetByName(string Name);

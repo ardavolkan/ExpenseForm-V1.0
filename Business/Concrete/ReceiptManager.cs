@@ -29,9 +29,9 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(ReceiptValidator))]
-        public IResult Delete(Receipt receipt)
+        public IResult Delete(string id)
         {
-            _receiptDal.Delete(receipt);
+            _receiptDal.Delete(id);
             return new SuccessResult(Messages.ReceiptDeleted);
         }
 

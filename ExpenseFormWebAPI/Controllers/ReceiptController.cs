@@ -40,21 +40,10 @@ namespace ExpenseFormWebAPI.Controllers
         }
         
         [HttpPost("Delete")]
-        public ActionResult Delete(ReceiptDto receiptDto)
+        public ActionResult Delete(string id)
         {
-            Receipt receipt = new Receipt()
-            {
-                EmployeeDepartment = receiptDto.EmployeeDepartment,
-                EmployeeFirstName = receiptDto.EmployeeFirstName,
-                EmployeeLastName = receiptDto.EmployeeLastName,
-                DocumentDate = receiptDto.DocumentDate,
-                Total = receiptDto.Total,
-                DocumentDescription = receiptDto.DocumentDescription,
-                CompanyName = receiptDto.CompanyName
-            };
-
-            var data = _receiptService.GetByName(receipt.EmployeeFirstName);
-            var result = _receiptService.Delete(data.Data); ;
+   
+            var result = _receiptService.Delete(id);
             if (result.Success)
             {
                 return Ok(result);
