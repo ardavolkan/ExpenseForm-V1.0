@@ -39,7 +39,7 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result);
         }
         
-        [HttpPost("Delete")]
+        [HttpGet("Delete")]
         public ActionResult Delete(string id)
         {
    
