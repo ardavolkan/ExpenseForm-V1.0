@@ -48,6 +48,11 @@ namespace Business.Concrete
             return new SuccessDataResult<Payment>(_paymentDal.Get(u => u.Id == Id));
         }
 
+        public IDataResult<Payment> GetByName(string employeeFirstName)
+        {
+            return new SuccessDataResult<Payment>(_paymentDal.Get(u => u.EmployeeFirstName == employeeFirstName));
+        }
+
         [ValidationAspect(typeof(PaymentValidator))]
         public IResult Update(Payment payment)
         {

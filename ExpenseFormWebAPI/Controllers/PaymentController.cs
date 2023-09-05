@@ -51,8 +51,6 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-
-
         [HttpPost("delete")]
         public ActionResult Delete(PaymentDto paymentDto)
         {
@@ -66,8 +64,8 @@ namespace ExpenseFormWebAPI.Controllers
                 Success = paymentDto.Success,
                 Description = paymentDto.Description
             };
-
-            var result = _paymentService.Delete(payment);
+            var data = _paymentService.GetByName(payment.EmployeeFirstName);
+            var result = _paymentService.Delete(data.Data); ;
             if (result.Success)
             {
                 return Ok(result);
