@@ -49,7 +49,7 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpPost("delete")]
+        [HttpGet("Delete")]
         public ActionResult Delete(string id)
         {
             var result = _paymentService.Delete(id);
@@ -59,6 +59,7 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result.Message);
         }
+
 
         [HttpPost("update")]
         public ActionResult Update(PaymentDto paymentDto)
