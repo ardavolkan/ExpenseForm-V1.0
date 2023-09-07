@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,5 +16,6 @@ namespace Business.Abstract
         IDataResult<Payment> GetById(string Id);
         IDataResult<Payment> GetByName(string employeeFirstName);
         IDataResult<Payment> GetByHistory(string history);
+        IDataResult<PaymentCountDto> GetByPaymentCount();
     }
 }

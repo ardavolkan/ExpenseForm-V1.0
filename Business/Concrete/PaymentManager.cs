@@ -5,6 +5,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -51,6 +52,11 @@ namespace Business.Concrete
         public IDataResult<Payment> GetByName(string employeeFirstName)
         {
             return new SuccessDataResult<Payment>(_paymentDal.Get(u => u.EmployeeFirstName == employeeFirstName));
+        }
+
+        public IDataResult<PaymentCountDto> GetByPaymentCount()
+        {
+            return new SuccessDataResult<PaymentCountDto>(_paymentDal.GetCount());
         }
 
         [ValidationAspect(typeof(PaymentValidator))]
