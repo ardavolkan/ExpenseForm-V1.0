@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.Dtos;
 using System.Collections.Generic;
 
 namespace Business.Abstract
@@ -12,6 +13,7 @@ namespace Business.Abstract
         IResult Update(Receipt receipt);
         IDataResult<Receipt> GetById(string Id);
         IDataResult<Receipt> GetByName(string Name);
+        IDataResult<ReceiptCountDto> GetByReceiptCount();
 
     }
 }
