@@ -82,6 +82,16 @@ namespace ExpenseFormWebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("GetByReceiptCount")]
+        public ActionResult GetByReceiptCount()
+        {
+            var result = _receiptService.GetByReceiptCount();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
         [HttpGet("GetById")]
         public ActionResult GetById(string Id)
