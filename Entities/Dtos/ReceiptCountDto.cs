@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Entities.Dtos
 {
-    internal class ReceiptCountDto
+    public class ReceiptCountDto:IDto
     {
+        public int? Count { get; set; }
     }
 }
