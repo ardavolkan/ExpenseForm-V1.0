@@ -5,6 +5,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -48,6 +49,11 @@ namespace Business.Concrete
         public IDataResult<Receipt> GetByName(string Name)
         {
             return new SuccessDataResult<Receipt>(_receiptDal.Get(u => u.EmployeeFirstName == Name));
+        }
+
+        public IDataResult<ReceiptCountDto> GetByReceiptCount()
+        {
+            return new SuccessDataResult<ReceiptCountDto>(_receiptDal.GetCount());
         }
 
         [ValidationAspect(typeof(ReceiptValidator))]
