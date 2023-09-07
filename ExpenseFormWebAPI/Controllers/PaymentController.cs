@@ -60,6 +60,16 @@ namespace ExpenseFormWebAPI.Controllers
             return BadRequest(result.Message);
         }
 
+        [HttpGet("GetByPaymentCount")]
+        public ActionResult GetByPaymentCount()
+        {
+            var result = _paymentService.GetByPaymentCount();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
 
         [HttpPost("update")]
         public ActionResult Update(PaymentDto paymentDto)
