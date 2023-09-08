@@ -27,8 +27,6 @@ namespace ExpenseFormWebAPI.Controllers
                 Total = receiptDto.Total,
                 DocumentDescription = receiptDto.DocumentDescription,
                 CompanyName = receiptDto.CompanyName
-
-
             };
 
             var result = _receiptService.Add(receipt);
